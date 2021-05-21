@@ -1,6 +1,5 @@
 package sg.edu.rp.c346.id19023702.rockpaperscissors;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
@@ -8,9 +7,7 @@ import androidx.appcompat.app.AppCompatDelegate;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 
 import java.util.Random;
@@ -20,7 +17,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button button_rock, button_paper, button_scissor;
 
     //default value assigned to user_selection
-    private static Selection user_selection = Selection.SCISSOR;
+    private static Selection user_selection = Selection.SCISSORS;
     private static Selection cpu_selection = Selection.ROCK;
 
     // assigning boolean to winner or loser
@@ -59,7 +56,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
 
             case R.id.button_scissor:
-                user_selection = Selection.SCISSOR;
+                user_selection = Selection.SCISSORS;
                 break;
         }
 
@@ -84,7 +81,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (random){
             case 0: return Selection.ROCK;
             case 1: return Selection.PAPER;
-            case 2: return Selection.SCISSOR;
+            case 2: return Selection.SCISSORS;
         }
         return Selection.ROCK;
     }
@@ -103,7 +100,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 user_winner = false;
                 return;
             }
-            else if(cpu_selection == Selection.SCISSOR){
+            else if(cpu_selection == Selection.SCISSORS){
                 user_winner = true;
                 return;
             }
@@ -111,7 +108,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         //paper wins from rock, loose from scissor
         if(user_selection == Selection.PAPER){
-            if(cpu_selection == Selection.SCISSOR){
+            if(cpu_selection == Selection.SCISSORS){
                 user_winner = false;
                 return;
             }
@@ -122,7 +119,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         //scissor wins from paper, loose from rock
-        if(user_selection == Selection.SCISSOR){
+        if(user_selection == Selection.SCISSORS){
             if(cpu_selection == Selection.ROCK){
                 user_winner = false;
                 return;
@@ -167,7 +164,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     //values reset for next game
     private void resetValues() {
-        user_selection = Selection.SCISSOR;
+        user_selection = Selection.SCISSORS;
         cpu_selection = Selection.ROCK;
 
         user_winner = true;
